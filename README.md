@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/decomplect-io/simple_activemodel_validators.svg)](https://travis-ci.org/decomplect-io/simple_activemodel_validators)
+[![Code Climate](https://codeclimate.com/github/decomplect-io/simple_activemodel_validators/badges/gpa.svg)](https://codeclimate.com/github/decomplect-io/simple_activemodel_validators)
 # Simple ActiveModel Validators
 
 A collection of ActiveModel validators that don't pollute the global namespace.

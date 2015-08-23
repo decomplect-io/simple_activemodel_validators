@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "simple_activemodel_validators"
+require "irb"
+require 'irb/completion'
+IRB.start

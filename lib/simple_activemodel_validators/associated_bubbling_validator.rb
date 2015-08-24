@@ -22,6 +22,9 @@ module SimpleActiveModelValidators
   # [1]: http://api.rubyonrails.org/classes/ActiveRecord/Validations/ClassMethods.html#method-i-validates_associated
   class AssociatedBubblingValidator < ActiveModel::EachValidator
     # Implements the contract of `ActiveModel::EachValidator`
+    # @param record The record being validated
+    # @param attribute The name of the attribute being validated
+    # @param values The value of the attribute
     # @return nil
     def validate_each(record, attribute, values)
       # values can be an array or a scalar

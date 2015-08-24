@@ -28,7 +28,7 @@ module SimpleActiveModelValidators
     # @return nil
     def validate_each(record, attribute, values)
       # values can be an array or a scalar
-      [values].flatten.reject(&:valid?).each do |value|
+      [values].flatten.compact.reject(&:valid?).each do |value|
         record.errors.add(attribute, value.errors.messages)
       end
     end

@@ -79,4 +79,26 @@ describe SimpleActiveModelValidators::AssociatedBubblingValidator do
       expect(comment.errors.messages).to eq(user: [{ name: ["can't be blank"] }])
     end
   end
+
+  context 'With null values' do
+    module WithNullValues
+      class User < ActiveRecord::Base
+        validates :name, presence: true
+        has_many :comments
+      end
+
+      class Comment < ActiveRecord::Base
+        has_one :user
+        validates :body, presence: true
+        validates :user, presence: true
+        validates_with SimpleActiveModelValidators::AssociatedBubblingValidator, attributes: [:user]
+      end
+    end
+
+    it 'does not fail' do
+      comment = WithNullValues::Comment.new(body: 'hello there!', user: nil)
+      expect(comment).not_to be_valid
+      expect(comment.errors.messages).to eq(user: ["can't be blank"])
+    end
+  end
 end

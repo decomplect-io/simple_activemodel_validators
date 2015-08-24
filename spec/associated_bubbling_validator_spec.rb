@@ -19,7 +19,7 @@ describe SimpleActiveModelValidators::AssociatedBubblingValidator do
     ActiveRecord::Base.connection.close
   end
 
-  context 'has_many' do
+  context 'When used with has_many' do
     module HasMany
       class User < ActiveRecord::Base
         validates :name, presence: true
@@ -38,7 +38,7 @@ describe SimpleActiveModelValidators::AssociatedBubblingValidator do
     end
   end
 
-  context 'belongs_to' do
+  context 'When used with belongs_to' do
     module BelongsTo
       class User < ActiveRecord::Base
         validates :name, presence: true
@@ -59,7 +59,7 @@ describe SimpleActiveModelValidators::AssociatedBubblingValidator do
     end
   end
 
-  context 'has_one' do
+  context 'When used with has_one' do
     module HasOne
       class User < ActiveRecord::Base
         validates :name, presence: true

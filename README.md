@@ -12,14 +12,15 @@ List of available validators:
   For example
   ```ruby
   class User < ActiveRecord::Base
-   validates :name, presence: true
-   has_many :comments
-   validates_with SimpleActiveModelValidators::AssociatedBubblingValidator, attributes: [:comments]
+    validates :name, presence: true
+     has_many :comments
+     validates_with SimpleActiveModelValidators::AssociatedBubblingValidator,
+                    attributes: [:comments]
   end
 
   class Comment < ActiveRecord::Base
-   belongs_to :user
-   validates :body, presence: true
+    belongs_to :user
+    validates :body, presence: true
   end
 
   user = User.new(name: 'Joe', comments: [Comment.new(body: '')])
